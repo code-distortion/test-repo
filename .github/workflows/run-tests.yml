@@ -45,7 +45,7 @@ jobs:
       - name: Cache composer's cache directory
         uses: actions/cache@v3
         with:
-            path: ${GITHUB_WORKSPACE}/vendor
+            path: ${{ GITHUB_WORKSPACE }}/vendor
             key: "[${{ matrix.os }}][php-${{ matrix.php }}][${{ matrix.dependency-prefer }}][composer.json-${{ hashFiles('composer.json') }}]"
 
       - name: Install dependencies
