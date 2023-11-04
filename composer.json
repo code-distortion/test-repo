@@ -1,0 +1,40 @@
+{
+    "name": "code-distortion/test-repo",
+    "description": "This is just a test.",
+    "keywords": [],
+    "homepage": "https://github.com/code-distortion/test-repo",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Tim Chandler",
+            "email": "tim@code-distortion.net",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "8.0.* | 8.1.* | 8.2.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "~4.8 | ^5.0 | ^6.0 | ^7.0 | ^8.4 | ^9.0 | ^10.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "CodeDistortion\\TestRepo\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "CodeDistortion\\TestRepo\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit"
+    },
+    "scripts-descriptions": {
+        "test": "Run PHPUnit tests"
+    },
+    "config": {
+        "sort-packages": true
+    }
+}

@@ -1,0 +1,10 @@
+.idea/
+build/
+infection/
+phpunit.cache/
+vendor/
+.phpunit.result.cache
+composer.lock
+infection.json5
+tests/Unit/ManualTest.php
+todo.txt
