@@ -55,6 +55,11 @@ jobs:
           path: ${{ steps.composer-cache.outputs.dir }}
           key: "[${{ matrix.os }}][php-${{ matrix.php }}][${{ matrix.dependency-prefer }}][composer.json-${{ hashFiles('composer.json') }}]"
 
+      - name: Install dependencies
+        run: |
+            composer require "phpunit/phpunit:${{ matrix.phpunit }}" --dev --no-interaction --no-update
+            composer update --${{ matrix.dependency-prefer }} --prefer-dist --no-interaction --optimize-autoloader --no-progress
+
 
 
 #      # find composer's cache directory - so we know which directory to cache in the next step
