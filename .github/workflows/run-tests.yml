@@ -45,7 +45,7 @@ jobs:
 
 
 
-      - run: echo $(pwd ~/)
+      - run: ls -lah ~/
 
 
 
