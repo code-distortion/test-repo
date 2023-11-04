@@ -59,6 +59,7 @@ jobs:
 
       - name: Install dependencies
         run: |
+            composer require "phpunit/phpunit:${{ matrix.phpunit }}" --dev --no-interaction --no-update
             composer update --${{ matrix.dependency-prefer }} --prefer-dist --no-interaction --optimize-autoloader --no-progress
 
 
