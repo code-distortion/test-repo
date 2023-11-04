@@ -45,6 +45,10 @@ jobs:
 
 
 
+      - run: echo $(pwd ~/)
+
+
+
       # find composer's cache directory - so we know which directory to cache in the next step
       - name: Find composer's cache directory
         id: composer-cache
@@ -67,8 +71,7 @@ jobs:
 #      - name: Find composer's cache directory
 #        id: composer-cache
 #        shell: bash # make sure this step works on Windows - see https://github.com/actions/runner/issues/2224#issuecomment-1289533957
-#        run: |
-#          echo "dir=$(composer config cache-files-dir)">> "$GITHUB_OUTPUT"
+#        run: echo "dir=$(composer config cache-files-dir)">> "$GITHUB_OUTPUT"
 #
 #      - name: Cache composer's cache directory
 #        uses: actions/cache@v3
