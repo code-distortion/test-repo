@@ -7,7 +7,7 @@ use CodeDistortion\TestRepo\Tests\PHPUnitTestCase;
 /**
  * @phpcs:disable PSR1.Methods.CamelCapsMethodName.NotCamelCaps
  */
-class PathUnitTest extends PHPUnitTestCase
+class SomeUnitTest extends PHPUnitTestCase
 {
     /**
      * Test something.

@@ -8,7 +8,7 @@ on:
 jobs:
   all:
 
-    name: PHP${{ matrix.php }} ${{ matrix.os-title }} ${{ matrix.dependency-prefer-title }}
+    name: PHP${{ matrix.php }} ${{ matrix.os }} ${{ matrix.dependency-prefer }}
     runs-on: ${{ matrix.os }}
     strategy:
       fail-fast: true
@@ -60,8 +60,7 @@ jobs:
           timeout_minutes: 5
           max_attempts: 5
           command: |
-            composer remove infection/infection phpstan/phpstan squizlabs/php_codesniffer --dev --no-interaction --no-update
-            composer require "phpunit/phpunit:${{ matrix.phpunit }}" --dev --no-interaction --no-update
+#            composer require "phpunit/phpunit:${{ matrix.phpunit }}" --dev --no-interaction --no-update
             composer update --${{ matrix.dependency-prefer }} --prefer-dist --no-interaction --optimize-autoloader --no-progress
 
       - name: Execute tests
