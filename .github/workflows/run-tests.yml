@@ -59,8 +59,8 @@ jobs:
         with:
           timeout_minutes: 5
           max_attempts: 5
-          command: |
 #            composer require "phpunit/phpunit:${{ matrix.phpunit }}" --dev --no-interaction --no-update
+          command: |
             composer update --${{ matrix.dependency-prefer }} --prefer-dist --no-interaction --optimize-autoloader --no-progress
 
       - name: Execute tests
