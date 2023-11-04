@@ -42,28 +42,34 @@ jobs:
 
 
 
-      - run: pwd ~
-      - run: ls -lah ~
-      - run: pwd
-      - run: ls -lah
-
-
-
-      # find composer's cache directory - so we know which directory to cache in the next step
-      - name: Find composer's cache directory
-        id: composer-cache
-        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
-
       - name: Cache composer's cache directory
         uses: actions/cache@v3
         with:
-          path: ${{ steps.composer-cache.outputs.dir }}
-          key: "[${{ matrix.os }}][php-${{ matrix.php }}][${{ matrix.dependency-prefer }}][composer.json-${{ hashFiles('composer.json') }}]"
+            path: vendor
+            key: "[${{ matrix.os }}][php-${{ matrix.php }}][${{ matrix.dependency-prefer }}][composer.json-${{ hashFiles('composer.json') }}]"
 
       - name: Install dependencies
         run: |
             composer require "phpunit/phpunit:${{ matrix.phpunit }}" --dev --no-interaction --no-update
             composer update --${{ matrix.dependency-prefer }} --prefer-dist --no-interaction --optimize-autoloader --no-progress
+
+
+
+#      # find composer's cache directory - so we know which directory to cache in the next step
+#      - name: Find composer's cache directory
+#        id: composer-cache
+#        run: echo "::set-output name=dir::$(composer config cache-files-dir)"
+#
+#      - name: Cache composer's cache directory
+#        uses: actions/cache@v3
+#        with:
+#          path: ${{ steps.composer-cache.outputs.dir }}
+#          key: "[${{ matrix.os }}][php-${{ matrix.php }}][${{ matrix.dependency-prefer }}][composer.json-${{ hashFiles('composer.json') }}]"
+#
+#      - name: Install dependencies
+#        run: |
+#            composer require "phpunit/phpunit:${{ matrix.phpunit }}" --dev --no-interaction --no-update
+#            composer update --${{ matrix.dependency-prefer }} --prefer-dist --no-interaction --optimize-autoloader --no-progress
 
 
 
